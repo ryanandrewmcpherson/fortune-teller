@@ -74,6 +74,7 @@ public class FortuneTeller {
     System.out.println("How many siblings do you have?"); 
     String userNumberSiblingsString = input.next();
     int userNumberSiblings = 0;
+    input.close();
     
     if(userNumberSiblingsString.equalsIgnoreCase("quit")) System.exit(0);
     else userNumberSiblings=Integer.parseInt(userNumberSiblingsString);
