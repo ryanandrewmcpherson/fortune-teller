@@ -38,19 +38,19 @@ public class FortuneTeller {
     
     System.out.println("Hello" +" "+userFirstName+" "+userLastName+"!"); //prints the text in quotes and stated variables
     System.out.println("How many years old are you?"); //prints the text in quotes
-    String ageS = in.next(); //reads user input into the string ageS
+    String userAgeString = in.next(); //reads user input into the string ageS
     
-    if(ageS.equalsIgnoreCase("quit")) {System.exit(0);}
-    else {userAge=Integer.parseInt(ageS);}
+    if(userAgeString.equalsIgnoreCase("quit")) {System.exit(0);}
+    else {userAge=Integer.parseInt(userAgeString);}
 
     if(userAge%2 == 0) {userYearsUntilRetirement = 70 - userAge;} //calculates years until retirement for odd age
     else{userYearsUntilRetirement = 65 - userAge;} //calculates years until retirement for even age
     
     System.out.println("What is the number of the month of your birth?"); //prints the text in quotes
-    String bMonS = in.next(); //reads user input into the string bMonS
+    String userBirthMonthString = in.next(); //reads user input into the string bMonS
     
-    if(bMonS.equalsIgnoreCase("quit")) {System.exit(0);}
-    else {userBirthMonth=Integer.parseInt(bMonS);}
+    if(userBirthMonthString.equalsIgnoreCase("quit")) {System.exit(0);}
+    else {userBirthMonth=Integer.parseInt(userBirthMonthString);}
     
     if(1 <= userBirthMonth && userBirthMonth <= 4) { userBankBalanceAtRetirement = 1234567.89*userYearsUntilRetirement*userBirthMonth;} //calculates a bankBal for birth months 1 to 4
     else if(5 <= userBirthMonth && userBirthMonth<= 8) { userBankBalanceAtRetirement = 9876543.21*userYearsUntilRetirement/userBirthMonth;} //calculates a bankBal for birth months 5 to 8
@@ -78,10 +78,10 @@ public class FortuneTeller {
     else {userTransportation = "magic carpet";} //sets mode of transportation if user enters something besides help or the colors of the rainbow
     
     System.out.println("How many siblings do you have?"); //prints the text in quotes 
-    String numSibS = in.next(); //reads user input into string numSibS
+    String userNumberSiblingsString = in.next(); //reads user input into string numSibS
     
-    if(numSibS.equalsIgnoreCase("quit")) {System.exit(0);}
-    else {userNumberSiblings=Integer.parseInt(numSibS);}
+    if(userNumberSiblingsString.equalsIgnoreCase("quit")) {System.exit(0);}
+    else {userNumberSiblings=Integer.parseInt(userNumberSiblingsString);}
     
     if(userNumberSiblings >= 4) {userVacationHomeLocation = "Nice, France";} //sets vacation home location for if the user has 4 or more siblings 
     else if(userNumberSiblings == 3){userVacationHomeLocation = "Dubai, United Arab Emirates";} //sets vacation home location for if the user has 3 siblings
