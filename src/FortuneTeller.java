@@ -7,7 +7,7 @@ public class FortuneTeller {
  * number of years the user has until retirement, the amount of money they will have in the bank,
  * the location of their retirement/vacation home, and mode of transportation they will be using*/
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub 
     
     System.out.println("Welcome to Fortune Teller!"); 
@@ -27,23 +27,70 @@ public class FortuneTeller {
     
     System.out.println("Hello" +" "+userFirstName+" "+userLastName+"!"); 
     System.out.println("How many years old are you?"); 
-    String userAgeString = input.next(); 
+ 
     int userAge = 0;
     int userYearsUntilRetirement = 0;
+    int numResponses = 1;
     
-    if(userAgeString.equalsIgnoreCase("quit")) System.exit(0);
-    else userAge=Integer.parseInt(userAgeString);
-
+    while(userAge == 0)
+    {
+    	
+    	if(input.hasNextInt()) 
+    		{
+    		 userAge = input.nextInt();
+    		 if(userAge < 0) 
+    		 {
+    		  if(numResponses>3) System.out.println("Quit Messing Around!");	 
+    		  System.out.println("Please enter a  whole number value great than 0!");
+    		  userAge = 0;
+    		  numResponses++;
+    		 }
+    		}
+    	else if (input.hasNext() && input.next().equalsIgnoreCase("quit"))
+    	    {
+    		 System.exit(0);
+    	    }
+    	else
+    	   { 
+    		if(numResponses>3) System.out.println("Quit Messing Around!");
+    		System.out.println("Please enter a whole number value greater than 0!");
+    		Thread.sleep(3000);
+    		numResponses++;
+    	   }
+    }
+    	    
     if(userAge%2 == 0) userYearsUntilRetirement = 70 - userAge;
     else userYearsUntilRetirement = 65 - userAge; 
-    
-    System.out.println("What is the number of the month of your birth?"); 
-    String userBirthMonthString = input.next(); 
+    System.out.println("What is the number of the month of your birth?");  
     int userBirthMonth = 0;
     double userBankBalanceAtRetirement = 0;
+    numResponses = 0;
     
-    if(userBirthMonthString.equalsIgnoreCase("quit")) System.exit(0);
-    else userBirthMonth=Integer.parseInt(userBirthMonthString);
+    while(userBirthMonth == 0)
+    {
+    	if(input.hasNextInt()) 
+    		{
+    		 userBirthMonth = input.nextInt();
+    		 if(userBirthMonth < 1 || userBirthMonth>12) 
+    		 {
+    		  if(numResponses>3) System.out.println("Quit Messing Around!");	 
+    		  System.out.println("Please enter a number representing your birth month from 1 to 12!");
+    		  userBirthMonth = 0;
+    		  numResponses++;
+    		 }
+    		}
+    	else if (input.hasNext() && input.next().equalsIgnoreCase("quit"))
+    	    {
+    		 System.exit(0);
+    	    }
+    	else
+    	   { 
+    		if(numResponses>3) System.out.println("Quit Messing Around!");
+    		System.out.println("Please enter a number representing your birth month from 1 to 12!");
+    		Thread.sleep(3000);
+    		numResponses++;
+    	   }
+    }
     
     if(1 <= userBirthMonth && userBirthMonth <= 4)  userBankBalanceAtRetirement = 1234567.89*userYearsUntilRetirement*userBirthMonth;
     else if(5 <= userBirthMonth && userBirthMonth<= 8) userBankBalanceAtRetirement = 9876543.21*userYearsUntilRetirement/userBirthMonth; 
@@ -57,7 +104,7 @@ public class FortuneTeller {
     
     while (userFavoriteRoygbivColor.equalsIgnoreCase("help"))  
     {
-    	System.out.println("ROYGBIV stands for Red Orang Yellow Green Blue Indigo Violet"); 
+    	System.out.println("ROYGBIV stands for Red Orange Yellow Green Blue Indigo Violet"); 
     	System.out.println("What is your favorite ROYGBIV color?"); 
         userFavoriteRoygbivColor =input.next();
     }
@@ -72,12 +119,34 @@ public class FortuneTeller {
     else {userTransportation = "magic carpet";} 
     
     System.out.println("How many siblings do you have?"); 
-    String userNumberSiblingsString = input.next();
-    int userNumberSiblings = 0;
-    input.close();
+    int userNumberSiblings = -1;
+    numResponses = 1;
     
-    if(userNumberSiblingsString.equalsIgnoreCase("quit")) System.exit(0);
-    else userNumberSiblings=Integer.parseInt(userNumberSiblingsString);
+    while(userNumberSiblings == -1)
+    {
+    	if(input.hasNextInt()) 
+    		{
+    		userNumberSiblings = input.nextInt();
+    		 if(userNumberSiblings < 0) 
+    		 {
+    		  if(numResponses>3) System.out.println("Quit Messing Around!");			 
+    		  System.out.println("Please enter a valid number of siblings (at least 0)!");
+    		  userNumberSiblings = -1;
+    		  numResponses++;
+    		 }
+    		}
+    	else if (input.hasNext() && input.next().equalsIgnoreCase("quit"))
+    	    {
+    		 System.exit(0);
+    	    }
+    	else
+    	   { 
+    		if(numResponses>3) System.out.println("Quit Messing Around!");	
+    		System.out.println("Please enter a valid number of siblings (at least 0)!");
+    		Thread.sleep(3000);
+    		numResponses++;
+    	   }
+    }
     
     String userVacationHomeLocation;
     
@@ -92,7 +161,7 @@ public class FortuneTeller {
     System.out.println(userFirstName + " " + userLastName + " will retire in " + userYearsUntilRetirement + " years with " 
     + bankBalString + " in the bank, a vacation home in " + userVacationHomeLocation + ", and travel by " + userTransportation + ".");
     
-    
+    input.close();
    
 	}
 
