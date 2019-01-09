@@ -1,9 +1,9 @@
 
-#FortuneTeller
+##FortuneTeller
 
 Answer Some Questions, get your fortune! Program will quit any time quit is typed. 
 
-## Questions
+### Questions
 What is your name? First? Last?
 -program expects strings .. no input validation here because name isn't used in fortune prediction
 
@@ -20,7 +20,7 @@ no input validation used her besides that because everything can be treated as a
 How many siblings do you have?
 -expects an integer greater than or equal to 0....will prompt the user to enter a valid number of siblings if they enter an invalid number ... will tell them the user to stop messing around if they've entered an invalid response more than 3 times
 
-### Fortune
+#### Fortune
 Years Until Retirement ... computed using the user's age
 Bank Balance at Retirement ... computed using the user's birth month
 Retirement Home Location ... computed using the user's number of siblings
