@@ -1,3 +1,4 @@
+package fortuneteller;
 import java.text.NumberFormat;
 import java.util.Scanner;
 
@@ -116,7 +117,7 @@ public class FortuneTeller {
 		else if (userFavoriteRoygbivColor.equalsIgnoreCase("orange"))
 			userTransportation = "A.S.S. (Autonomous Space Ship)";
 		else if (userFavoriteRoygbivColor.equalsIgnoreCase("yellow"))
-			userTransportation = "Lamborgini";
+			userTransportation = "Lamborghini";
 		else if (userFavoriteRoygbivColor.equalsIgnoreCase("green"))
 			userTransportation = "your own two feet";
 		else if (userFavoriteRoygbivColor.equalsIgnoreCase("blue"))
