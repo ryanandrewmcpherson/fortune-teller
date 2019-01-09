@@ -1,5 +1,4 @@
-
-##FortuneTeller
+# FortuneTeller
 
 Answer Some Questions, get your fortune! Program will quit any time quit is typed. 
 
