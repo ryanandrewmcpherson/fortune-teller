@@ -23,40 +23,44 @@ public class FortuneTeller {
 		String userFirstName = input.next();
 
 		if (userFirstName.equalsIgnoreCase("quit"))
+		{
 			System.exit(0);
+		}
 
 		System.out.println("Last?");
 		String userLastName = input.next();
 
 		if (userLastName.equalsIgnoreCase("quit"))
+		{
 			System.exit(0);
+		}
 
 		System.out.println("Hello" + " " + userFirstName + " " + userLastName + "!");
 		System.out.println("How many years old are you?");
 
 		int userAge = 0;
 		int userYearsUntilRetirement = 0;
-		int numResponses = 1;
+		int numInvalidResponses = 1;
 
 		while (userAge == 0) {
 
 			if (input.hasNextInt()) {
 				userAge = input.nextInt();
 				if (userAge < 0) {
-					if (numResponses > 3)
+					if (numInvalidResponses > 3)
 						System.out.println("Quit Messing Around!");
 					System.out.println("Please enter a  whole number value great than 0!");
 					userAge = 0;
-					numResponses++;
+					numInvalidResponses++;
 				}
-			} else if (input.hasNext() && input.next().equalsIgnoreCase("quit")) {
+			} else if (input.next().equalsIgnoreCase("quit")) {
 				System.exit(0);
-			} else {
-				if (numResponses > 3)
+			} else if (!input.nextLine().equalsIgnoreCase("quit")){
+				if (numInvalidResponses > 3) {
 					System.out.println("Quit Messing Around!");
+				}
 				System.out.println("Please enter a whole number value greater than 0!");
-				Thread.sleep(3000);
-				numResponses++;
+				numInvalidResponses++;
 			}
 		}
 
@@ -67,26 +71,26 @@ public class FortuneTeller {
 		System.out.println("What is the number of the month of your birth?");
 		int userBirthMonth = 0;
 		double userBankBalanceAtRetirement = 0;
-		numResponses = 0;
+		numInvalidResponses = 0;
 
 		while (userBirthMonth == 0) {
 			if (input.hasNextInt()) {
 				userBirthMonth = input.nextInt();
 				if (userBirthMonth < 1 || userBirthMonth > 12) {
-					if (numResponses > 3)
+					if (numInvalidResponses >= 3)
 						System.out.println("Quit Messing Around!");
 					System.out.println("Please enter a number representing your birth month from 1 to 12!");
 					userBirthMonth = 0;
-					numResponses++;
+					numInvalidResponses++;
 				}
-			} else if (input.hasNext() && input.next().equalsIgnoreCase("quit")) {
+			} else if (input.next().equalsIgnoreCase("quit")) {
 				System.exit(0);
-			} else {
-				if (numResponses > 3)
+			} else if (!input.nextLine().equalsIgnoreCase("quit")){
+				if (numInvalidResponses >= 3)
 					System.out.println("Quit Messing Around!");
 				System.out.println("Please enter a number representing your birth month from 1 to 12!");
-				Thread.sleep(3000);
-				numResponses++;
+
+				numInvalidResponses++;
 			}
 		}
 
@@ -132,26 +136,26 @@ public class FortuneTeller {
 
 		System.out.println("How many siblings do you have?");
 		int userNumberSiblings = -1;
-		numResponses = 1;
+		numInvalidResponses = 1;
 
 		while (userNumberSiblings == -1) {
 			if (input.hasNextInt()) {
 				userNumberSiblings = input.nextInt();
 				if (userNumberSiblings < 0) {
-					if (numResponses > 3)
+					if (numInvalidResponses >= 3)
 						System.out.println("Quit Messing Around!");
 					System.out.println("Please enter a valid number of siblings (at least 0)!");
 					userNumberSiblings = -1;
-					numResponses++;
+					numInvalidResponses++;
 				}
-			} else if (input.hasNext() && input.next().equalsIgnoreCase("quit")) {
+			} else if (input.next().equalsIgnoreCase("quit")) {
 				System.exit(0);
-			} else {
-				if (numResponses > 3)
+			} else if (!input.nextLine().equalsIgnoreCase("quit")){
+				if (numInvalidResponses >= 3)
 					System.out.println("Quit Messing Around!");
 				System.out.println("Please enter a valid number of siblings (at least 0)!");
 				Thread.sleep(3000);
-				numResponses++;
+				numInvalidResponses++;
 			}
 		}
 
