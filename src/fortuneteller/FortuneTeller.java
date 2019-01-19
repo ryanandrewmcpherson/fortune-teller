@@ -1,4 +1,5 @@
 package fortuneteller;
+
 import java.text.NumberFormat;
 import java.util.Scanner;
 
@@ -22,16 +23,14 @@ public class FortuneTeller {
 		Scanner input = new Scanner(System.in);
 		String userFirstName = input.next();
 
-		if (userFirstName.equalsIgnoreCase("quit"))
-		{
+		if (userFirstName.equalsIgnoreCase("quit")) {
 			System.exit(0);
 		}
 
 		System.out.println("Last?");
 		String userLastName = input.next();
 
-		if (userLastName.equalsIgnoreCase("quit"))
-		{
+		if (userLastName.equalsIgnoreCase("quit")) {
 			System.exit(0);
 		}
 
@@ -47,15 +46,16 @@ public class FortuneTeller {
 			if (input.hasNextInt()) {
 				userAge = input.nextInt();
 				if (userAge < 0) {
-					if (numInvalidResponses > 3)
+					if (numInvalidResponses >= 3) {
 						System.out.println("Quit Messing Around!");
+					}
 					System.out.println("Please enter a  whole number value great than 0!");
 					userAge = 0;
 					numInvalidResponses++;
 				}
 			} else if (input.next().equalsIgnoreCase("quit")) {
 				System.exit(0);
-			} else if (!input.nextLine().equalsIgnoreCase("quit")){
+			} else if (!input.nextLine().equalsIgnoreCase("quit")) {
 				if (numInvalidResponses > 3) {
 					System.out.println("Quit Messing Around!");
 				}
@@ -77,19 +77,20 @@ public class FortuneTeller {
 			if (input.hasNextInt()) {
 				userBirthMonth = input.nextInt();
 				if (userBirthMonth < 1 || userBirthMonth > 12) {
-					if (numInvalidResponses >= 3)
+					if (numInvalidResponses >= 3) {
 						System.out.println("Quit Messing Around!");
+
+					}
 					System.out.println("Please enter a number representing your birth month from 1 to 12!");
 					userBirthMonth = 0;
 					numInvalidResponses++;
 				}
 			} else if (input.next().equalsIgnoreCase("quit")) {
 				System.exit(0);
-			} else if (!input.nextLine().equalsIgnoreCase("quit")){
+			} else if (!input.nextLine().equalsIgnoreCase("quit")) {
 				if (numInvalidResponses >= 3)
 					System.out.println("Quit Messing Around!");
 				System.out.println("Please enter a number representing your birth month from 1 to 12!");
-
 				numInvalidResponses++;
 			}
 		}
@@ -142,19 +143,19 @@ public class FortuneTeller {
 			if (input.hasNextInt()) {
 				userNumberSiblings = input.nextInt();
 				if (userNumberSiblings < 0) {
-					if (numInvalidResponses >= 3)
+					if (numInvalidResponses >= 3) {
 						System.out.println("Quit Messing Around!");
+					}
 					System.out.println("Please enter a valid number of siblings (at least 0)!");
 					userNumberSiblings = -1;
 					numInvalidResponses++;
 				}
 			} else if (input.next().equalsIgnoreCase("quit")) {
 				System.exit(0);
-			} else if (!input.nextLine().equalsIgnoreCase("quit")){
+			} else if (!input.nextLine().equalsIgnoreCase("quit")) {
 				if (numInvalidResponses >= 3)
 					System.out.println("Quit Messing Around!");
 				System.out.println("Please enter a valid number of siblings (at least 0)!");
-				Thread.sleep(3000);
 				numInvalidResponses++;
 			}
 		}
